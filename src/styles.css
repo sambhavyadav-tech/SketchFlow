@@ -1,0 +1,168 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Inter, Arial, sans-serif;
+  background: #020617;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: rgba(15,23,42,0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 100;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#2563eb,#9333ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.branding h1 {
+  font-size: 20px;
+}
+
+.branding p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.toolbar-center {
+  display: flex;
+  gap: 12px;
+}
+
+.tool-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.tool-pill:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.feature-btn {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.feature-btn.secondary {
+  background: #334155;
+}
+
+.feature-btn.disabled {
+  background: #475569;
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.canvas-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.canvas-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+}
+
+.overlay-card {
+  width: 320px;
+  background: rgba(15,23,42,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.overlay-card h3 {
+  margin-bottom: 14px;
+}
+
+.ai-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.overlay-card p {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.overlay-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #475569;
+  color: white;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+body.light {
+  background: #f8fafc;
+  color: black;
+}
