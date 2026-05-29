@@ -1,32 +1,46 @@
 
 import { useRef, useState } from 'react'
-import { Tldraw } from '@tldraw/tldraw'
+import {
+  Tldraw,
+  Editor
+} from '@tldraw/tldraw'
+
 import '@tldraw/tldraw/tldraw.css'
 
 import {
   Sparkles,
   Image,
   FileCode,
-  Trash2,
+  RotateCcw,
+  Undo2,
+  Redo2,
   Wand2
 } from 'lucide-react'
 
 export default function App() {
 
-  const editorRef = useRef<any>(null)
+  const editorRef = useRef<Editor | null>(null)
 
   const [showAI, setShowAI] = useState(false)
 
-  const exportPNG = async () => {
+  const exportPNG = () => {
     alert('PNG export connected.')
   }
 
-  const exportSVG = async () => {
+  const exportSVG = () => {
     alert('SVG export connected.')
   }
 
-  const clearCanvas = () => {
+  const resetScreen = () => {
     window.location.reload()
+  }
+
+  const undoAction = () => {
+    editorRef.current?.undo()
+  }
+
+  const redoAction = () => {
+    editorRef.current?.redo()
   }
 
   return (
@@ -35,15 +49,33 @@ export default function App() {
       <header className="topbar">
 
         <div className="branding">
+
           <div className="logo">⚡</div>
 
           <div>
             <h1>FlowSketch AI</h1>
             <p>Smart Diagram Whiteboard</p>
           </div>
+
         </div>
 
         <div className="toolbar-actions">
+
+          <button
+            className="feature-btn secondary"
+            onClick={undoAction}
+          >
+            <Undo2 size={18} />
+            Undo
+          </button>
+
+          <button
+            className="feature-btn secondary"
+            onClick={redoAction}
+          >
+            <Redo2 size={18} />
+            Redo
+          </button>
 
           <div
             className="ai-hover-wrapper"
@@ -88,9 +120,12 @@ export default function App() {
             SVG Export
           </button>
 
-          <button className="feature-btn danger" onClick={clearCanvas}>
-            <Trash2 size={18} />
-            Clear All
+          <button
+            className="feature-btn danger"
+            onClick={resetScreen}
+          >
+            <RotateCcw size={18} />
+            Reset Screen
           </button>
 
         </div>
@@ -126,6 +161,9 @@ export default function App() {
         <Tldraw
           persistenceKey="flowsketch-ai-enhanced"
           autoFocus
+          onMount={(editor) => {
+            editorRef.current = editor
+          }}
         />
 
       </main>
