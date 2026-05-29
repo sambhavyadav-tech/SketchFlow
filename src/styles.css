@@ -186,3 +186,19 @@ html,
 .danger:hover {
   background: #ef4444;
 }
+
+.secondary {
+  background: #334155;
+}
+
+.secondary:hover {
+  background: #475569;
+}
+
+.danger {
+  background: #dc2626;
+}
+
+.danger:hover {
+  background: #ef4444;
+}
