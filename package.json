@@ -1,8 +1,8 @@
 
 {
-  "name": "flowsketch-ultimate",
+  "name": "flowsketch-ai-enhanced",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@tldraw/tldraw": "^2.2.0",
-    "jspdf": "^2.5.1",
     "lucide-react": "^0.511.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
