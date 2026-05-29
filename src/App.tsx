@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Tldraw } from '@tldraw/tldraw'
 import '@tldraw/tldraw/tldraw.css'
 
@@ -7,10 +7,13 @@ import {
   Sparkles,
   Image,
   FileCode,
+  Trash2,
   Wand2
 } from 'lucide-react'
 
 export default function App() {
+
+  const editorRef = useRef<any>(null)
 
   const [showAI, setShowAI] = useState(false)
 
@@ -20,6 +23,10 @@ export default function App() {
 
   const exportSVG = async () => {
     alert('SVG export connected.')
+  }
+
+  const clearCanvas = () => {
+    window.location.reload()
   }
 
   return (
@@ -43,6 +50,7 @@ export default function App() {
             onMouseEnter={() => setShowAI(true)}
             onMouseLeave={() => setShowAI(false)}
           >
+
             <button className="feature-btn ai-btn">
               <Sparkles size={18} />
               AI Beautify
@@ -67,6 +75,7 @@ export default function App() {
 
               </div>
             )}
+
           </div>
 
           <button className="feature-btn" onClick={exportPNG}>
@@ -79,11 +88,17 @@ export default function App() {
             SVG Export
           </button>
 
+          <button className="feature-btn danger" onClick={clearCanvas}>
+            <Trash2 size={18} />
+            Clear All
+          </button>
+
         </div>
 
       </header>
 
       <div className="feature-strip">
+
         <div className="feature-card">
           ✨ Smart Line Straightening
         </div>
@@ -103,27 +118,10 @@ export default function App() {
         <div className="feature-card">
           🎯 Shape Beautification
         </div>
+
       </div>
 
       <main className="canvas-wrapper">
-
-        <div className="canvas-overlay">
-
-          <div className="overlay-card">
-            <h3>AI Diagram Engine</h3>
-
-            <p>
-              Draw rough sketches and convert them into
-              clean professional diagrams automatically.
-            </p>
-
-            <div className="status-box">
-              MVP Release Mode
-            </div>
-
-          </div>
-
-        </div>
 
         <Tldraw
           persistenceKey="flowsketch-ai-enhanced"
