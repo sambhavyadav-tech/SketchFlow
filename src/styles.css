@@ -178,3 +178,11 @@ html,
   text-align: center;
   font-weight: 600;
 }
+
+.danger {
+  background: #dc2626;
+}
+
+.danger:hover {
+  background: #ef4444;
+}
